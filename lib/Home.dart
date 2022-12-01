@@ -10,75 +10,105 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Widget> listData = [
-    Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              border: Border.all(width: 5, color: Color(0xffF5591F))),
-          child: Image(image: AssetImage("images/histories.png")),
-        ),
-        Text("Histories", style: TextStyle(fontWeight: FontWeight.bold))
-      ],
-    ),
-    Column(
-      children: [
-        Container(
-            height: 200,
+    InkWell(
+      onTap: () {
+        //show Histories
+      },
+      child: Column(
+        children: [
+          Container(
             decoration: BoxDecoration(
-                border: Border.all(width: 5, color: Color(0xffF5591F))),
-            child: Image(image: AssetImage("images/my_file.png"))),
-        Text(
-          "My Files",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )
-      ],
+                border: Border.all(width: 5, color: const Color(0xffF5591F))),
+            child: const Image(image: AssetImage("images/histories.png")),
+          ),
+          const Text("Histories", style: TextStyle(fontWeight: FontWeight.bold))
+        ],
+      ),
     ),
-    Column(
-      children: [
-        Container(
-            decoration: BoxDecoration(
-                border: Border.all(width: 5, color: Color(0xffF5591F))),
-            child: Image(image: AssetImage("images/my_groups.png"))),
-        Text("My Groups", style: TextStyle(fontWeight: FontWeight.bold))
-      ],
+    InkWell(
+      onTap: () {
+        //Show My Files
+      },
+      child: Column(
+        children: [
+          Container(
+              height: 200,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 5, color: const Color(0xffF5591F))),
+              child: const Image(image: AssetImage("images/my_file.png"))),
+          const Text(
+            "My Files",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
     ),
-    Column(
-      children: [
-        Container(
-            decoration: BoxDecoration(
-                border: Border.all(width: 5, color: Color(0xffF5591F))),
-            child: Image(image: AssetImage("images/all_users.png"))),
-        Text("All users", style: TextStyle(fontWeight: FontWeight.bold))
-      ],
+    InkWell(
+      onTap: () {
+        //show my Groups
+      },
+      child: Column(
+        children: [
+          Container(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 5, color: const Color(0xffF5591F))),
+              child: const Image(image: AssetImage("images/my_groups.png"))),
+          const Text("My Groups", style: TextStyle(fontWeight: FontWeight.bold))
+        ],
+      ),
+    ),
+    InkWell(
+      onTap: () {
+        //show All Users
+      },
+      child: Column(
+        children: [
+          Container(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 5, color: const Color(0xffF5591F))),
+              child: const Image(image: AssetImage("images/all_users.png"))),
+          const Text("All users", style: TextStyle(fontWeight: FontWeight.bold))
+        ],
+      ),
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
-      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      drawer: const Drawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: Colors.white,
-          child: Container(
-            width: 250,
-            child: Row(
-              children: const [
-                Text(
-                  "Create Group",
-                  style: TextStyle(color: Color(0xffF5591F)),
-                ),
-                Icon(Icons.add)
-              ],
-            ),
-          )),
+      floatingActionButton: SizedBox(
+        width: 150,
+        child: FloatingActionButton(
+            shape:
+                BeveledRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            onPressed: () {
+              //Create Group
+            },
+            backgroundColor: Colors.white,
+            child: SizedBox(
+              width: 250,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    "Create Group",
+                    style: TextStyle(color: Color(0xffF5591F)),
+                  ),
+                  Icon(
+                    Icons.add,
+                    color: Color(0xffF5591F),
+                  )
+                ],
+              ),
+            )),
+      ),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(125),
+        preferredSize: const Size.fromHeight(125),
         child: AppBar(
           systemOverlayStyle:
-              SystemUiOverlayStyle(statusBarColor: Color(0xffF5591F)),
+              const SystemUiOverlayStyle(statusBarColor: Color(0xffF5591F)),
           toolbarHeight: 125,
           centerTitle: true,
           title: const Center(
@@ -86,7 +116,7 @@ class _HomeState extends State<Home> {
             "My Profile",
             style: TextStyle(fontSize: 30),
           )),
-          backgroundColor: Color(0xffF5591F),
+          backgroundColor: const Color(0xffF5591F),
           actions: [
             Builder(
               builder: (context) => IconButton(
@@ -99,7 +129,7 @@ class _HomeState extends State<Home> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.only(top: 30),
         child: GridView.count(
           crossAxisCount: 2,
           crossAxisSpacing: 2,
